@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 
 # How to run code
-Please note that you must be the highest level in the directory tree before running any code. Do not change into sub-directories or else you'll have to adjust import statements
+Please note that you must be in the highest level in the directory tree before running any code. Do not change into sub-directories or else you'll have to adjust import statements
 
 ## Generating maps using MAP-Elites
 To generate a map for MAP-Elites, run the following command:
@@ -55,7 +55,7 @@ python3 experiments/adaptation_tests/run_adapt_tests_cpg_base_best.py
 
 To run the adaptation experiments for the reference controller's tripod gait *without* using IT&E to adapt (2.):
 ```bash
-python3 experiments/adaptation_tests/run_adapt_tests_cpg_base_best.py 
+python3 experiments/adaptation_tests/run_tripod_tests.py 
 ```
 
 To run the adaptation experiments for the **reference** controller using IT&E to adapt (3.1):
