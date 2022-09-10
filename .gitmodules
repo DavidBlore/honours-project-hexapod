@@ -1,0 +1,3 @@
+[submodule "honours-project-simulator"]
+	path = honours-project-simulator
+	url = https://github.com/DavidBlore/honours-project-simulator
