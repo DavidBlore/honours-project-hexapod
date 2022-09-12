@@ -15,7 +15,7 @@ pip install -r requirements.txt
 * scipy
 
 # Videos
-*coming soon*
+[Click here](https://youtu.be/zb89rz9omFI) to see the different controllers adapting to the various failure scenarios.
 
 
 # How to run code
