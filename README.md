@@ -1,7 +1,7 @@
 # Evolving Central Pattern Generator Controllers for Automated Damage Recovery in Hexapod Robots
 
 This repository contains all of the code necessary to replicate the simulated experiments from my honours paper.
-To view the code for NEAT, [click here] (https://github.com/DavidBlore/honours-project-NEAT).
+To view the code for NEAT, [click here](https://github.com/DavidBlore/honours-project-NEAT).
 
 # Python package dependencies
 ```shell
