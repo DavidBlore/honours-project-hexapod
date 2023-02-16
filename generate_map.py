@@ -62,8 +62,8 @@ if __name__ == '__main__':
     
     # read in the seeded individuals from files
     individuals = None
-    #if args.controller=="CPG":
-    #    individuals = controller_tools.read_in_individuals(['all-best-genomes.txt'])
+    if args.controller=="CPG":
+        individuals = controller_tools.read_in_individuals(['all-best-genomes.txt'])
 
     if args.restore_checkpoint == "": # standard run
         archive = cvt_map_elites.compute(

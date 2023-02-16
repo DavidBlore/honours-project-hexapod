@@ -221,7 +221,7 @@ if __name__ == "__main__":
 
     if "CPG" not in args.controller and "REF" not in args.controller:
         raise Exception("Invalid controller - use \"CPG\" or \"REF\"")
-    if args.niches != 20 and args.niches != 40:
+    if args.niches not in [5,10,20,40,80]:
         raise Exception(f"Only niches sizes of 20 and 40 are allowed (20k and 40k).\nYou put {args.niches}")
 
     # load in centroids
@@ -230,16 +230,22 @@ if __name__ == "__main__":
         fit, beh, x = load_data(os.path.join(os.path.dirname(__file__), "..", "..", "maps", "CPG", f"{args.niches}k", f"map_{args.map}.dat"), centroids.shape[1], 24)
         ttl = plt.title(f"CPG Controller map - {args.niches}k niches", fontsize=20, pad=30)
     else:
-        centroids = load_centroids(os.path.join(os.path.dirname(__file__), "..", "..",  "centroids", f"centroids_{args.niches}000_6_reference.dat"))
+        centroids = load_centroids(os.path.join(os.path.dirname(__file__), "..", "..",  "centroids", f"centroids_{args.niches}000_6.dat"))
+        # centroids = load_centroids(os.path.join(os.path.dirname(__file__), "..", "..",  "centroids", f"centroids_{args.niches}000_6_reference.dat"))
         fit, beh, x = load_data(os.path.join(os.path.dirname(__file__), "..", "..", "maps", "REF", f"{args.niches}k", f"map_{args.map}.dat"), centroids.shape[1], 24)
         ttl = plt.title(f"Reference Controller map - {args.niches}k niches", fontsize=20, pad=30)
 
     
     index = np.argmax(fit)
+    max_fit_in_this_mapsize = float(max(fit))
     # manually adjust min/max fitness to normalize colouring
     if True: 
         min_fit = float(0)
-        max_fit = float(5)
+        # 2.57546=REF 3.52317=CPG
+        if args.controller == "REF":
+            max_fit = float(2.5755269812861106) 
+        else:
+            max_fit = float(2.9220633991676346)
     else:
         min_fit = min(fit)
         max_fit = max(fit)
@@ -268,7 +274,8 @@ Min = {min_fit} Max={max_fit}
     sm._A = []
     colorbar = plt.colorbar(sm)
     colorbar.ax.get_yaxis().labelpad = 50
-    colorbar.ax.set_ylabel('Gait speed ($m/s$)', rotation=270, fontsize=20) # ($ms^{-1}$)'
+    colorbar.ax.set_ylabel('Controller performance', rotation=270, fontsize=20) # ($ms^{-1}$)'
+    # colorbar.ax.set_ylabel('Gait speed ($m/s$)', rotation=270, fontsize=20) # ($ms^{-1}$)'
 
     if args.controller == "CPG":
         ttl = plt.title(f"CPG Controller map - {args.niches}k niches", fontsize=20, pad=30)
@@ -281,4 +288,4 @@ Min = {min_fit} Max={max_fit}
     fig.savefig(path)
     fig.savefig(path_png)
     
-    plt.show()
+    # plt.show()
