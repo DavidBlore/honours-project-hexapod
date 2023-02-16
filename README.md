@@ -1,6 +1,6 @@
 # Automated Damage Control in a Hexapod Robot - CPG Controller
 
-This repository contains all of the code necessary to replicate the simulated experiments from the paper we submitted to the Gecco 2023 conference.
+This repository contains all of the code necessary to replicate the simulated experiments from the paper we submitted to the Gecco 2023 conference. This repo is for the CPG controller in the paper.
 
 To view the code for NEAT, [click here](https://github.com/DavidBlore/honours-project-NEAT).
 
